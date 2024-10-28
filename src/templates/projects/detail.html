@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>
+    {{ instance.title }}
+</h1>
+
+{% if request.project == instance %}
+{% include "projects/sinppets/list.html" with object_list=items_qs%}
+{% else %}
+<a href="{{ instance.get_activate_url }}">Activate Project</a>
+{% endif %}
+{% include "projects/sinppets/forms.html" with form=form btn_label="Save"%}
+
+{% endblock content %}

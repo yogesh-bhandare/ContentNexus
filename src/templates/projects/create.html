@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Create project for {{ request.project.title }} project</h1>
+
+{% include "projects/sinppets/forms.html" with form=form btn_label="Create"%}
+
+{% endblock content %}
