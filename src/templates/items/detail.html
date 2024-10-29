@@ -4,8 +4,13 @@
 
 <h1>
     {{ instance.title }}
+    {{ instance.get_prefix }}
 </h1>
-
+<div
+class="" 
+hx-get="{{ instance.get_upload_url }}" 
+hx-trigger="load"></div>
+<div hx-get={{ instance.get_files_url }} hx-trigger="load"></div>
 {% include "items/sinppets/forms.html" with form=form btn_label="Save"%}
 
 {% endblock content %}

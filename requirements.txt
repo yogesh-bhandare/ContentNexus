@@ -5,3 +5,6 @@ dj-database-url
 psycopg2-binary
 requests
 whitenoise
+django-htmx
+boto3
+natsort

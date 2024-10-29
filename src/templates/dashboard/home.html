@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <button id="refresh-button" >Refresh</button>
+</div>
+<div hx-get="{{ items_list_url }}" hx-trigger="load, click from:#refresh-button">
+    Loading...
+</div>
+
+
+{% endblock content %}
+

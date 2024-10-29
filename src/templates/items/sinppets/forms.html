@@ -1,4 +1,13 @@
-<form action="." method="post">
+<form 
+    {% if action_url %} 
+    action="{{ action_url }}" 
+    hx-post="{{action_url }}"
+    {% else %} 
+    action="" 
+    {% endif %} 
+    method="post"
+>
+
     {% csrf_token %}
     {% if form %}
         {{ form.as_div }}

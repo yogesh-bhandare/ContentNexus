@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import test_view
-from projects import views as project_views
+from landing import views as landing_view
 
 urlpatterns = [
-    path('', test_view),
+    path('', landing_view.home_page_view, name="home"),
+    path('home/', landing_view.home_page_view, name="home"),
     path('items/', include('items.urls')),
     path('projects/', include('projects.urls')),
     path('admin/', admin.site.urls),

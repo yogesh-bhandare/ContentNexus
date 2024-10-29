@@ -6,7 +6,7 @@
     <title>Document</title>
     {% include "base/css.html" %}
 </head>
-<body>
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
     {% include "navbar/base.html" %}
     {% include "head/messages.html" %}
     {% block content %}{% endblock content %}

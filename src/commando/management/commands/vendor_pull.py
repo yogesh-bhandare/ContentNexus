@@ -9,6 +9,8 @@ STATICFILES_VENDOR_DIRS = getattr(settings, "STATICFILES_VENDOR_DIRS")
 VENDOR_STATICFILES = {
     "flowbite.min.css": "https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css",
     "flowbite.min.js": "https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js",
+    "flowbite.min.js.map": "https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js",
+    "htmx.min.js": "https://unpkg.com/htmx.org@2.0.3/dist/htmx.js",
 }
 
 class Command(BaseCommand):

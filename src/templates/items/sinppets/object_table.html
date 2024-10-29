@@ -1,0 +1,17 @@
+
+{% for object_dict in object_list %}
+<div id="object-{{ forloop.counter }}">{{ object_dict.name }} 
+    <img src="{{object_dict.url}}" >
+    <a href="{{ object_dict.download_url }}">Download</a>
+    <a href="{{ object_dict.url }}">Browser</a>
+    {% if instance %}
+    <button 
+    hx-confirm="Are you sure you want to delete this file?"
+    hx-target="#object-{{ forloop.counter }}"
+    hx-swap="innerHTML"
+    hx-post="{{ instance.get_absolute_url }}files/{{ object_dict.name }}">
+        Delete
+    </button>
+    {% endif %}
+</div>
+{% endfor %}
