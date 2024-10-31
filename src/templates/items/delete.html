@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Confim delete this {{ instance.title }}</h1>
-{% include "items/sinppets/forms.html" with btn_label="Delete" %}
+
+<h1 class="text-2xl font-bold text-red-600 mb-4">
+    Confirm delete this {{ instance.title }}
+</h1>
+
+<div class="bg-white shadow rounded-lg p-6 dark:bg-gray-800">
+    {% include "items/sinppets/forms.html" with btn_label="Delete" %}
+</div>
 
 {% endblock content %}

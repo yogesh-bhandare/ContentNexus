@@ -8,3 +8,7 @@ whitenoise
 django-htmx
 boto3
 natsort
+django-allauth[socialaccount]
+django-allauth-ui
+django-widget-tweaks
+slippers

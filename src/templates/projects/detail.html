@@ -2,15 +2,33 @@
 
 {% block content %}
 
-<h1>
-    {{ instance.title }}
-</h1>
+<div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6 min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-white px-6 py-8">
+  
+  <!-- Title Section (Centered Across Both Columns) -->
+  <h1 class="text-3xl font-semibold text-blue-800 dark:text-white col-span-1 lg:col-span-2 text-center mb-8">
+      {{ instance.title }}
+  </h1>
 
-{% if request.project == instance %}
-{% include "projects/sinppets/list.html" with object_list=items_qs%}
-{% else %}
-<a href="{{ instance.get_activate_url }}">Activate Project</a>
-{% endif %}
-{% include "projects/sinppets/forms.html" with form=form btn_label="Save"%}
+  <!-- Left Column: Project Items List or Activate Link -->
+  <div class="w-full h-full">
+    {% if request.project == instance %}
+        <!-- Project Items List -->
+        <div class="bg-dark-2 p-6 rounded-lg shadow-form h-full">
+            {% include "projects/sinppets/list.html" with object_list=items_qs %}
+        </div>
+    {% else %}
+        <!-- Activate Project Link -->
+        <a href="{{ instance.get_activate_url }}" class="inline-block px-4 py-2 text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-600 dark:hover:bg-blue-700">
+            Activate Project
+        </a>
+    {% endif %}
+  </div>
+
+  <!-- Right Column: Project Form -->
+  <div class="bg-dark-2 p-6 rounded-lg shadow-form w-full h-full">
+      {% include "projects/sinppets/forms.html" with form=form btn_label="Update" %}
+  </div>
+  
+</div>
 
 {% endblock content %}

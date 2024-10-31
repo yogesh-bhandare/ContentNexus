@@ -1,16 +1,24 @@
 <form 
     {% if action_url %} 
-    action="{{ action_url }}" 
-    hx-post="{{action_url }}"
+        action="{{ action_url }}" 
+        hx-post="{{ action_url }}"
     {% else %} 
-    action="" 
+        action="" 
     {% endif %} 
     method="post"
+    class="space-y-4 bg-white p-6 rounded-lg shadow-md border border-gray-200 dark:bg-dark-2 dark:border-gray-700 text-white"
 >
-
     {% csrf_token %}
     {% if form %}
-        {{ form.as_div }}
+        <div class="space-y-4">
+            {{ form.as_div }}
+        </div>
     {% endif %}
-    <button type="submit">{% if btn_label %}{{ btn_label }}{% else %}Submit{% endif %}</button>
+    
+    <button 
+        type="submit" 
+        class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-400"
+    >
+        {% if btn_label %}{{ btn_label }}{% else %}Submit{% endif %}
+    </button>
 </form>

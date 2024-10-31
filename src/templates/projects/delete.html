@@ -1,7 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Confim delete this {{ instance.title }}</h1>
-{% include "projects/sinppets/forms.html" with btn_label="Delete" %}
+
+<div class="flex flex-col items-center justify-center min-h-screen py-8 space-y-6 bg-gray-50 dark:bg-gray-900">
+    <!-- Confirmation Message -->
+    <h1 class="text-2xl font-semibold text-red-600 dark:text-red-400">
+        Confirm delete this: {{ instance.title }}
+    </h1>
+
+    <!-- Delete Confirmation Form -->
+    <div class="w-full max-w-md">
+        {% include "projects/sinppets/forms.html" with btn_label="Delete" %}
+    </div>
+</div>
 
 {% endblock content %}

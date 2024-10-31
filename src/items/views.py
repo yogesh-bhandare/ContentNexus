@@ -229,12 +229,15 @@ def item_detail_inline_update_view(request, id=None):
 @login_required
 def item_delete_view(request, id=None):
     instance = get_object_or_404(Item, id=id, project=request.project)
+    template_name = "items/delete.html"
+    # if request.htmx:
+    #     template_name = "items/sinppets/table.html"
     if request.method == "POST":
         instance.delete()
         if request.htmx:
             return request_refresh_list(request)
         return redirect("items:list")
-    return render(request, "items/delete.html", {"instance": instance})
+    return render(request, template_name, {"instance": instance})
 
 @project_required
 @login_required

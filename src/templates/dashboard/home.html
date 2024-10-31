@@ -2,12 +2,14 @@
 
 {% block content %}
 <div>
-    <button id="refresh-button" >Refresh</button>
+    <button id="refresh-button" class="flex items-center p-2 text-gray-500 hover:text-gray-800 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6v12a1 1 0 001 1h14a1 1 0 001-1V6m-7 5h3m-3 4h3M3 6a9 9 0 0118 0h-3a6 6 0 00-12 0H3z" />
+        </svg>
+        <span class="sr-only">Refresh</span>
+    </button>
 </div>
 <div hx-get="{{ items_list_url }}" hx-trigger="load, click from:#refresh-button">
     Loading...
 </div>
-
-
 {% endblock content %}
-

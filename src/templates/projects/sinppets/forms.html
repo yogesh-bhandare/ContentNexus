@@ -1,7 +1,19 @@
-<form action="." method="post">
-    {% csrf_token %}
-    {% if form %}
-        {{ form.as_div }}
-    {% endif %}
-    <button type="submit">{% if btn_label %}{{ btn_label }}{% else %}Submit{% endif %}</button>
-</form>
+<div class="flex flex-col items-center py-8 space-y-6">
+    <h1 class="text-lg">
+        {% if btn_label %}{{ btn_label }} Project{% else %}Submit{% endif %}
+    </h1>
+
+    <form action="." method="post" class="w-full max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+        {% csrf_token %}
+        
+        {% if form %}
+            <div class="space-y-4">
+                {{ form.as_p }} <!-- Ensure your form fields render with <p> tags -->
+            </div>
+        {% endif %}
+        
+        <button type="submit" class="w-full mt-4 px-4 py-2 text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-600 dark:hover:bg-blue-700">
+            {% if btn_label %}{{ btn_label }}{% else %}Submit{% endif %}
+        </button>
+    </form>
+</div>

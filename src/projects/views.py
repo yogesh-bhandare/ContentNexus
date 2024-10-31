@@ -8,7 +8,6 @@ from .decorators import project_required
 PROJECT_CAN_DELETE_ITEM_THRESHOLD=10
 
 # Create your views here.
-@project_required
 @login_required
 def project_list_view(request):
     object_list = Project.objects.filter(owner=request.user)
@@ -47,7 +46,6 @@ def project_delete_view(request, handle=None):
         return redirect("projects:list")
     return render(request, "projects/delete.html", {"instance": instance})
 
-@project_required
 @login_required
 def project_create_view(request):
     form = forms.ProjectCreateForm(request.POST or None)

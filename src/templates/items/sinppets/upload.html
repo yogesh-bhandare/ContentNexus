@@ -1,18 +1,29 @@
 <div class="space-y-4">
     <div class="hidden upload-progress-display">Loading</div>
-    <form class="space-y-2" method="post" id="upload-form">
+    <form class="space-y-4" method="post" id="upload-form">
         <input type="hidden" value="{{ instance.get_upload_url }}" name="endpoint" />
         <input type="hidden" value="{{ instance.get_absolute_url }}" name="next" />
 
-    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file-id">Upload files</label>
-    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" 
-    required="required"
-    id="file-id" name='file' type="file" multiple>
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file-id">Upload files</label>
+        <input 
+            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" 
+            required="required"
+            id="file-id" 
+            name='file' 
+            type="file" 
+            multiple
+        >
 
-    <button type="submit" id="upload-button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Start Upload</button>
-   
+        <button 
+            type="submit" 
+            id="upload-button" 
+            class="py-2.5 px-5 text-sm font-medium text-white bg-blue-600 rounded-lg border border-gray-200 hover:bg-blue-700 hover:text-white focus:z-10 focus:ring-4 focus:ring-blue-300 dark:bg-blue-500 dark:border-gray-600 dark:hover:bg-blue-600 dark:hover:text-white dark:focus:ring-blue-800"
+        >
+            Start Upload
+        </button>
     </form>
 </div>
+
 
 
 <script>

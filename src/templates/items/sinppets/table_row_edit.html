@@ -1,22 +1,26 @@
-<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" id="item-table-row-{{ instance.id }}">
+<tr class="text-white border-b dark:bg-gray-800 dark:border-gray-700" id="item-table-row-{{ instance.id }}">
     <td colspan="4">
         <form 
             hx-swap="outerHTML"
             hx-target="#item-table-row-{{ instance.id }}"
-            class="tw-form" 
+            class="space-y-4"
             method="post"
             hx-post="{{ instance.get_edit_url }}"
             action="{{ instance.get_edit_url }}"
-            >
+        >
             {% csrf_token %}
             {% if form %}
-                {{ form.as_div }}
+                <div class="grid grid-cols-1 gap-4 ">
+                    {{ form.as_div }}
+                </div>
             {% endif %}
-            <div>
-                <button {% if delete %}class="tw-form-delete"{% endif %} type="submit">{% if btn_label %}{{ btn_label }}{% else %}Submit{% endif %}</button>
+            <div class="flex justify-end">
+                <button 
+                    {% if delete %} class="bg-red-600 text-white hover:bg-red-700 focus:ring-4 focus:ring-red-300 rounded-lg" {% else %} class="bg-blue-600 text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 rounded-lg" {% endif %}
+                    type="submit">
+                    {% if btn_label %}{{ btn_label }}{% else %}Submit{% endif %}
+                </button>
             </div>
-
         </form>
-
     </td>
 </tr>
