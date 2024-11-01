@@ -47,7 +47,7 @@ COPY package.json /code/package.json
 RUN npm install
 
 # Run Tailwind CSS to generate output CSS files
-RUN npx tailwindcss -i src/staticfiles/src/tailwind-input.css -o src/staticfiles/css/tailwind-output.css --minify
+RUN npm run dev
 
 # Set up environment variables for Django
 ARG DJANGO_SECRET_KEY
