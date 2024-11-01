@@ -64,9 +64,9 @@ if DEBUG:
         "localhost"
     ]
 
-# CSRF_TRUSTED_ORIGINS = [
-#     'https://sellaiart.up.railway.app',
-# ]
+CSRF_TRUSTED_ORIGINS = [
+    'https://contentnexus.up.railway.app',
+]
 
 # Application definition
 
